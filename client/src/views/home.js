@@ -37,7 +37,7 @@ const Home = () => {
     return (
     <div>
         <div>
-            <Nav/>
+            <Nav />
         </div>
         <form onSubmit={submitHandler}>
             <div>
