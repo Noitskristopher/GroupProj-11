@@ -21,12 +21,11 @@ const PatientSymptomsSchema = new mongoose.Schema({
     },
     currentMeds:{
         type: String,
-        required:[false],
-        minLength:[3, 'Medication name must be at least 3 characters']
         
     },
     appointmentDate:{
         type: Date,
+        required:[true, 'Must complete field'],
         min: ['2023-03-30', 'Date must be in the future!']
         
     }
