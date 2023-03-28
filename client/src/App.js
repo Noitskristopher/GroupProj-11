@@ -4,6 +4,7 @@ import Home from './views/home'
 import Nav from './components/Nav';
 import Register from './components/Register';
 import Login from './components/Login';
+import DisplayAll from './components/DisplayAll';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/myPortal' element={<DisplayAll />} />
       </Routes>
     </div>
   );

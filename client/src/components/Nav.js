@@ -7,7 +7,7 @@ const Nav = () => {
             <h2 className='fw-bold'>DocConnect <img src='docIcon.webp' alt='logo' /></h2>
             <div className='d-flex justify-content-evenly align-items-center'>
                 <Link to={'/home'} className='mx-2 text-decoration-none text-black'>Home</Link>
-                <Link to={'/home'} className='mx-2 text-decoration-none text-black'>My Portal</Link>
+                <Link to={'/myPortal'} className='mx-2 text-decoration-none text-black'>My Portal</Link>
                 <Link className='mx-2 text-decoration-none text-black'>Logout</Link>
             </div>
         </div>
