@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { link } from 'react-router-dom'
+import { link, useNavigate } from 'react-router-dom'
 
 const Home = (props) => {
     const [painLocation, setPainLocation] = useState("");
@@ -8,7 +8,8 @@ const Home = (props) => {
     const [painLevel, setPainLevel] = useState("");
     const [currentMeds, setCurrentMeds] = useState("");
     const [appointmentDate, setAppointmentDate] = useState("");
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -28,6 +29,7 @@ const Home = (props) => {
                 setPainLevel("");
                 setCurrentMeds("");
                 setAppointmentDate("");
+                navigate('/myPortal')
             })
             .catch((err) => {
                 console.log(err)
@@ -39,12 +41,14 @@ const Home = (props) => {
     }
 
     return (
-        <div>
+        <div className='mx-auto w-50'>
+            <h3 className='my-2'>PATIENT FORM</h3>
             <form onSubmit={submitHandler}>
-                <div>
-                    <label>What's hurting?</label>
+                <div className='my-2'>
+                    <label className='form-label'>What's hurting?</label>
                     <div>
                         <input
+                            className='form-control'
                             onChange={(e) => setPainLocation(e.target.value)}
                             value={painLocation}
                             type="text" />
@@ -55,10 +59,10 @@ const Home = (props) => {
                         }
                     </div>
                 </div>
-                <div>
-                    <label>How long has it been hurting?</label>
+                <div className='my-2'>
+                    <label className='form-label'>How long has it been hurting?</label>
                     <div>
-                        <input onChange={(e) => setPainDuration(e.target.value)}
+                        <input className='form-control' onChange={(e) => setPainDuration(e.target.value)}
                             value={painDuration}
                             type="text" />
                         {
@@ -68,10 +72,10 @@ const Home = (props) => {
                         }
                     </div>
                 </div>
-                <div>
-                    <label>Pain level?</label>
+                <div className='my-2'>
+                    <label className='form-label'>Pain level?</label>
                     <div>
-                        <input onChange={(e) => setPainLevel(e.target.value)}
+                        <input className='form-control' onChange={(e) => setPainLevel(e.target.value)}
                             value={painLevel}
                             type="number" />
                         {
@@ -81,18 +85,18 @@ const Home = (props) => {
                         }
                     </div>
                 </div>
-                <div>
-                    <label>Any current medications?</label>
+                <div className='my-2'>
+                    <label className='form-label'>Any current medications?</label>
                     <div>
-                        <input onChange={(e) => setCurrentMeds(e.target.value)}
+                        <input className='form-control' onChange={(e) => setCurrentMeds(e.target.value)}
                             value={currentMeds}
                             type="text" />
                     </div>
                 </div>
-                <div>
-                    <label>Appointment date</label>
+                <div className='my-2'>
+                    <label className='form-label'>Appointment date</label>
                     <div>
-                        <input onChange={(e) => setAppointmentDate(e.target.value)}
+                        <input className='form-control' onChange={(e) => setAppointmentDate(e.target.value)}
                             value={appointmentDate}
                             type="date" />
                         {
@@ -102,7 +106,7 @@ const Home = (props) => {
                         }
                     </div>
                 </div>
-                <button image='submit'> Submit</button>
+                <button className='btn btn-primary my-2' image='submit'> Submit</button>
             </form>
         </div>
     )
