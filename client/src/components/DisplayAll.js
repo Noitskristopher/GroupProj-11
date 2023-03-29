@@ -43,7 +43,7 @@ const DisplayAll = () => {
                                 <td>{ticket.painLevel}</td>
                                 <td>{ticket.currentMeds}</td>
                                 <td>{formatter.format(Date.parse(ticket.appointmentDate))}</td>
-                                <td><Link>Details</Link></td>
+                                <td><Link to={`/myPortal/${ticket._id}`}>Details</Link></td>
                             </tr>
                         </tbody>
                     ))
