@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import DisplayAll from './components/DisplayAll';
 import DisplayOne from './components/DisplayOne';
+import EditForm from './components/EditForm';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/myPortal' element={<DisplayAll />} />
         <Route path='/myPortal/:id' element={<DisplayOne />} />
+        <Route path='/myPortal/:id/edit' element={<EditForm />} />
       </Routes>
     </div>
   );
