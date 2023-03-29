@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 
 const DisplayOne = (props) => {
     const [oneTicket, setOneTicket] = useState([])
+    const navigate = useNavigate();
     const { id } = useParams();
     const formatter = new Intl.DateTimeFormat("en-US", {
         year: "numeric",
@@ -22,8 +23,19 @@ const DisplayOne = (props) => {
             })
     }, [id]);
 
+    const deleteHandler = () => {
+        axios.delete(`http://localhost:8000/api/ticket/${id}`)
+            .then((res) => {
+                navigate('/myPortal')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
+
     const date = new Date(oneTicket.appointmentDate);
     const fixedDate = date.toLocaleDateString('en-ca');
+
     return (
         <div>
             <h4>What's hurting?</h4>
@@ -37,7 +49,7 @@ const DisplayOne = (props) => {
             <h4>Appointment Date:</h4>
             <h3>{fixedDate}</h3>
             <Link to={`/myPortal/${oneTicket._id}/edit`} className='mx-2'><button className='btn btn-dark'>Edit</button></Link>
-            <Link className='btn btn-danger'>Delete</Link>
+            <button onClick={deleteHandler} className='btn btn-danger'>Delete</button>
         </div>
     );
 }
