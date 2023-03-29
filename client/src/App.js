@@ -5,7 +5,7 @@ import Nav from './components/Nav';
 import Register from './components/Register';
 import Login from './components/Login';
 import DisplayAll from './components/DisplayAll';
-
+import DisplayOne from './components/DisplayOne';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/myPortal' element={<DisplayAll />} />
+        <Route path='/myPortal/:id' element={<DisplayOne />} />
       </Routes>
     </div>
   );
