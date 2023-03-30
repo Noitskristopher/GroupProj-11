@@ -1,5 +1,5 @@
 .background {
-    height: 750px;
+    height: 900px;
     background: rgba(147,206,222,1);
     background: -moz-linear-gradient(left, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(73,165,191,1) 100%);
     background: -webkit-gradient(left top, right top, color-stop(0%, rgba(147,206,222,1)), color-stop(41%, rgba(117,189,209,1)), color-stop(100%, rgba(73,165,191,1)));
@@ -17,5 +17,5 @@
         border-radius: 15px;
         -webkit-box-shadow: 20px 20px 5px 0px rgba(0,0,0,0.7);
         -moz-box-shadow: 20px 20px 5px 0px rgba(0,0,0,0.7);
-        box-shadow: 20px 20px 5px 0px rgba(0,0,0,0.7);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.7);
     }
