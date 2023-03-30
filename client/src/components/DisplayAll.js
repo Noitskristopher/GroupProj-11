@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 const DisplayAll = () => {
     const [allTickets, setAllTickets] = useState([])
-    const formatter = new Intl.DateTimeFormat("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "2-digit"
-    });
     useEffect(() => {
         axios.get('http://localhost:8000/api/tickets', { withCredentials: true })
             .then((allTickets) => {
@@ -42,7 +38,7 @@ const DisplayAll = () => {
                                 <td>{ticket.painDuration}</td>
                                 <td>{ticket.painLevel}</td>
                                 <td>{ticket.currentMeds}</td>
-                                <td>{formatter.format(Date.parse(ticket.appointmentDate))}</td>
+                                <td>{moment(ticket.appointmentDate).utc().format("MMM Do YYYY")}</td>
                                 <td><Link to={`/myPortal/${ticket._id}`}>Details</Link></td>
                             </tr>
                         </tbody>
