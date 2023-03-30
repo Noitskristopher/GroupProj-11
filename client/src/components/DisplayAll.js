@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import '../components/styles.css';
 
 const DisplayAll = () => {
     const [allTickets, setAllTickets] = useState([])
@@ -17,9 +18,9 @@ const DisplayAll = () => {
     }, [])
 
     return (
-        <div>
-            <h3 className='my-3'>You have {allTickets.length} upcoming appointments</h3>
-            <table className='table table-hover table-striped mx-auto w-75 border'>
+        <div className='background'>
+            <h3 className='pt-2 fw-bold'>You have {allTickets.length} upcoming appointments</h3>
+            <table className='table table-hover table-light table-striped mx-auto w-75 border border-dark'>
                 <thead className='table-dark'>
                     <tr>
                         <th>What's Hurting?</th>

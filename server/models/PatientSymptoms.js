@@ -28,7 +28,6 @@ const PatientSymptomsSchema = new mongoose.Schema({
         type: Date,
         required: [true, 'Must complete field'],
         min: ['03-30-2023', 'Date must be in the future!']
-
     }
 }, { timestamps: true })
 
