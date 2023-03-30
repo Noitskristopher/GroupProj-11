@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import moment from 'moment';
+// make a seperate useState that changes date
 const EditForm = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -41,9 +42,6 @@ const EditForm = () => {
             })
     }
 
-    const date = new Date(patientTicket.appointmentDate);
-    const fixedDate = date.toLocaleDateString('en-ca');
-
     return (
         <div className='mx-auto w-50'>
             <h3 className='mt-2'>EDIT FORM</h3>
@@ -77,10 +75,10 @@ const EditForm = () => {
                         <p className='text-danger'>{errors.appointmentDate.message}</p> :
                         null
                 }
-                <input className='form-control' type='date' name='appointmentDate' value={fixedDate} onChange={changeHandler}></input>
+                <input className='form-control' type='date' name='appointmentDate' value={moment(patientTicket.appointmentDate).utc().format("yyyy-MM-DD")} onChange={changeHandler}></input>
                 <button className='btn btn-primary my-2'> Submit</button>
             </form>
-        </div>
+        </div >
     );
 }
 
